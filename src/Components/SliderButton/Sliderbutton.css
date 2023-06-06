@@ -1,0 +1,40 @@
+.button-container {
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 9rem;
+}
+.button-container > * {
+  font-size: 4rem;
+}
+
+.button-container:hover {
+  border: solid #df2e38 0.4px;
+  background-color: #df2e38;
+}
+
+/* for slider animations */
+.slider-container {
+  width: 100%;
+  height: 87vh;
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide img,
+.slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
