@@ -3,8 +3,6 @@ import { useContext } from "react";
 import { productState } from "../../State/ProductState";
 import { Toaster, toast } from "react-hot-toast";
 
-import { useNavigate } from "react-router-dom";
-
 export default function Checkout() {
   const { cartArray } = useContext(productState);
   const totalPrice = cartArray.reduce(

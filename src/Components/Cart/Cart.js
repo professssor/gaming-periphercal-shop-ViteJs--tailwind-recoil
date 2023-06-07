@@ -96,25 +96,24 @@ export default function Cart() {
               {totalPrice.toFixed(2)}{" "}
             </p>
 
-            <Link onClick={() => setRender(!render)} to="/checkout">
-              <Button
-                variant="contained"
-                sx={{
-                  color: "white",
-                  background: "red",
-                  borderRadius: ".2rem",
-                  margin: "auto",
-                  textAlign: "center",
-                  height: "2rem",
+            <Button
+              onClick={() => navigate("/checkout")}
+              variant="contained"
+              sx={{
+                color: "white",
+                background: "red",
+                borderRadius: ".2rem",
+                margin: "auto",
+                textAlign: "center",
+                height: "2rem",
 
-                  "&:hover": {
-                    background: "black",
-                  },
-                }}
-              >
-                Proceed
-              </Button>
-            </Link>
+                "&:hover": {
+                  background: "black",
+                },
+              }}
+            >
+              Proceed
+            </Button>
           </>
         )}
       </Box>

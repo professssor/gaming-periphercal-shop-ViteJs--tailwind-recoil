@@ -48,9 +48,11 @@ function App() {
         <Route path="/mockman" element={<MockAPI />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/cart" element={<Cart />} />
         {/* private routes */}
         <Route element={<PrivatePage />}>
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </div>
