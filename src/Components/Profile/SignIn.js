@@ -26,7 +26,7 @@ const Signin = () => {
         alignItems: "center",
       }}
     >
-      <Toaster />
+      <Toaster position="top-right" />
       <Typography variant="h5" sx={{ padding: "2rem" }}>
         Sign In
       </Typography>
@@ -39,7 +39,7 @@ const Signin = () => {
       <TextField
         onChange={(e) => setPassword(e.target.value)}
         label="Password"
-        type={showPassword ? "password" : "text"}
+        type={showPassword ? "text" : "password"}
         sx={{ marginBottom: "20px", width: "20rem" }}
         InputProps={{
           endAdornment: showPassword ? (

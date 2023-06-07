@@ -9,11 +9,17 @@ import Person2Icon from "@mui/icons-material/Person2";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Navbar = () => {
-  const { cartArray, wishlistArray, allProducts, handleSearch, searchQuery } =
-    useContext(productState);
-  const [renderCart, setRenderCart] = useState(false);
-  const [searchVisible, setSearchVisible] = useState(false);
+  const {
+    cartArray,
+    wishlistArray,
+    allProducts,
+    handleSearch,
+    searchQuery,
+    renderCart,
+    setRenderCart,
+  } = useContext(productState);
 
+  const [searchVisible, setSearchVisible] = useState(false);
   // to render the search bar on the click of search icon
   const handleSearchClick = () => {
     setSearchVisible(!searchVisible);
@@ -22,14 +28,14 @@ const Navbar = () => {
   return (
     <nav
       style={{
-        // position: "sticky",
-        // top: "0",
+        position: "sticky",
+        top: "0",
         background: `url(${footerbg})`,
         marginRight: "1rem",
         display: "flex",
         justifyContent: "space-between",
         padding: "10px",
-        // zIndex: 1,
+        zIndex: 1,
         alignItems: "center",
       }}
     >

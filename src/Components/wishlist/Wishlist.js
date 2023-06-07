@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { productState } from "../../State/ProductState";
 import bgproduct from "../../assets/bgproduct.avif";
 import webimg from "../../assets/icons8-empty-box-96 (1).png";
+import { Toaster } from "react-hot-toast";
 
 export default function Wishlist() {
   const { wishlistArray, handleDeleteWishlistItem } = useContext(productState);
@@ -13,6 +14,7 @@ export default function Wishlist() {
       sx={{
         height: "100vh",
         display: "flex",
+
         justifyContent: "center",
         padding: "2rem",
 
@@ -21,6 +23,7 @@ export default function Wishlist() {
         textAlign: "center",
       }}
     >
+      <Toaster position="top-right" />
       <Box
         sx={{
           padding: "1rem",

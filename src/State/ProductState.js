@@ -1,11 +1,22 @@
 import { createContext, useState } from "react";
-import { products } from "../backend/db/products";
+
+import { useItemsData } from "./ApiCallState";
+import { useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
+import { toast } from "react-hot-toast";
 
 export const productState = createContext();
 
 export default function ProductsStateProvider({ children }) {
+  const { categories, products } = useItemsData();
+
   // the main products state copy to accessed globally
-  const [selectedProducts, setSelectedProducts] = useState([...products]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
+  const { isAuth } = useAuth();
+  const navigate = useNavigate();
+  // to set the product dta
 
   // accessing categories from categories array
 
@@ -14,11 +25,41 @@ export default function ProductsStateProvider({ children }) {
   const [sliderValue, setSliderValue] = useState(0);
   const [allProducts, setAllProducts] = useState([...products]);
   const [cartArray, setCartArray] = useState([]); // aray to keep check of elements in cart
-  const [added, setAdded] = useState(false); //for the toggling of button text based on this boolean
+  console.log(allProducts);
   const [wishlistArray, setWishlistArray] = useState([]);
   const [wisthListToggle, setWishListToggle] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedProducts, setSearchedProducts] = useState([]);
+  // for toggling rendering of cart  on screen
+  const [renderCart, setRenderCart] = useState(false);
+  useEffect(() => {
+    if (products.length > 0) {
+      setSelectedProducts([...products]);
+      setAllProducts([...products]);
+    }
+  }, [products]);
+  // declaring the local storage variables
+  useEffect(() => {
+    const storedCartArray = localStorage.getItem("cartArray");
+    if (storedCartArray) {
+      setCartArray(JSON.parse(storedCartArray));
+    }
+  }, []);
+  useEffect(() => {
+    const storedWishlistArray = localStorage.getItem("wishlistArray");
+    if (storedWishlistArray) {
+      setWishlistArray(JSON.parse(storedWishlistArray));
+    }
+  }, []);
+  // initializing the local storage variables
+  useEffect(() => {
+    localStorage.setItem("cartArray", JSON.stringify(cartArray));
+  }, [cartArray]);
+
+  useEffect(() => {
+    localStorage.setItem("wishlistArray", JSON.stringify(wishlistArray));
+  }, [wishlistArray]);
+
   // Handle sorting or filtering here
   const handlePriceToggle = (e) => {
     const value = e.target.value;
@@ -38,52 +79,58 @@ export default function ProductsStateProvider({ children }) {
 
   const handleSliderChange = (e) => {
     const value = e.target.value;
-
     setSliderValue(value);
     setSelectedProducts(
       allProducts.filter((product) => product.price <= value)
     );
-
-    // setSliderValue(0);
-    // setSelectedProducts([...allProducts]);
-
-    //  handling cart addition and subtration
   };
   const handleCart = (clickedObj) => {
-    setAdded(true);
     setCartArray((prevCart) => {
       const existingItem = prevCart.find(
         (cartItem) => cartItem.id === clickedObj.id
       );
-      return existingItem
-        ? ((existingItem.quantity += 1), [...prevCart])
-        : [...prevCart, { ...clickedObj, quantity: 1 }];
+      if (existingItem) {
+        existingItem.quantity += 1;
+        setTimeout(() => {
+          toast(
+            "item already exist in  the cart , furthur clicks will increase the product quantity"
+          );
+        }, 700);
+
+        return [...prevCart];
+      } else {
+        const newCartItem = { ...clickedObj, quantity: 1 };
+        toast.success("Added to cart");
+        return [...prevCart, newCartItem];
+      }
     });
   };
 
   const handleDeleteCartItem = (clickedObj) => {
-    setAdded(false);
     setCartArray((prevCart) =>
       prevCart.filter((cartItem) => cartItem.id !== clickedObj.id)
     );
+    toast.success("item removed from cart ");
   };
 
   // wishlist
   // to add value in wishlist
   const handleAddToWishlist = (clickedObj) => {
-    setWishListToggle(true);
-    setWishlistArray((prevWishlist) =>
-      prevWishlist.some((item) => item.id === clickedObj.id)
-        ? prevWishlist
-        : [...prevWishlist, clickedObj]
-    );
+    if (wishlistArray.some((item) => item.id === clickedObj.id)) {
+      // Item already exists in wishlist, no action needed
+      return;
+    }
+
+    setWishlistArray((prevWishlist) => [...prevWishlist, clickedObj]);
+    toast.success("Added to wishlist");
   };
+
   // to delete the value in wishlist
   const handleDeleteWishlistItem = (item) => {
-    setWishListToggle(false);
     setWishlistArray((prevWishlist) =>
       prevWishlist.filter((wishlist) => wishlist.id !== item.id)
     );
+    toast.success("item removed from wishlist ");
   };
 
   // for handling the search functionality
@@ -118,7 +165,7 @@ export default function ProductsStateProvider({ children }) {
         handleCart,
         cartArray,
         handleDeleteCartItem,
-        added,
+
         handleAddToWishlist,
         wishlistArray,
         handleDeleteWishlistItem,
@@ -129,6 +176,8 @@ export default function ProductsStateProvider({ children }) {
         setSliderValue,
         setSearchQuery,
         setSelectedOption,
+        renderCart,
+        setRenderCart,
       }}
     >
       {children}

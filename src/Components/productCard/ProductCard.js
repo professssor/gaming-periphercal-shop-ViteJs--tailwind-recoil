@@ -12,11 +12,13 @@ import {
 } from "@mui/material";
 import { productState } from "../../State/ProductState";
 import { Link } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 const ProductCard = ({ item }) => {
   const { name, price, image } = item;
-  const { handleCart, added, handleAddToWishlist, wisthListToggle } =
+  const { handleCart, handleAddToWishlist, wisthListToggle } =
     useContext(productState);
+  console.log(wisthListToggle);
 
   return (
     <Card
@@ -32,6 +34,7 @@ const ProductCard = ({ item }) => {
         boxShadow: "none",
       }}
     >
+      <Toaster position=" top-center" />
       {/* to render thenew slogan on items with having a property new set to true */}
       <Box>
         {item.new ? (
@@ -106,10 +109,11 @@ const ProductCard = ({ item }) => {
               width: "10%",
               color: "black",
               height: "3rem",
+              // Change color to red if added to wishlist
             }}
           >
             <FavoriteBorderIcon
-              // sx={{ color: !wisthListToggle ? "red" : null }}
+              sx={{ color: wisthListToggle ? "red" : "black" }}
               onClick={() => {
                 handleAddToWishlist(item);
               }}

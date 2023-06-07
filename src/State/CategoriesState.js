@@ -1,8 +1,11 @@
 import { createContext, useState } from "react";
-import { categories } from "../backend/db/categories";
+// import { categories } from "../backend/db/categories";
+import { useItemsData } from "./ApiCallState";
 
 export const categoryState = createContext();
 export default function CategoriesStateProvider({ children }) {
+  const { categories, products } = useItemsData();
+
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   // function to handle the click state of checkbox realtime

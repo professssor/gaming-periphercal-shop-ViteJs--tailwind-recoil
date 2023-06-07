@@ -16,6 +16,7 @@ import SearchResult from "./Components/SearchResults/SearchResult";
 import SignIn from "./Components/Profile/SignIn";
 import Login from "./Components/Profile/Login";
 import { PrivatePage } from "./pages/Privatepage";
+import Checkout from "./Components/Checkout/Checkout";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path="/login" element={<Login />} />{" "}
         <Route path="/mockman" element={<MockAPI />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/checkout" element={<Checkout />} />
         {/* private routes */}
         <Route element={<PrivatePage />}>
           <Route path="/wishlist" element={<Wishlist />} />

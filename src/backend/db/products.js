@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   // CPUs
   {
-    id: uuid(),
+    id: 1,
     name: "Intel Core i7-11700K",
     price: 399.99,
     core_count: 8,
@@ -20,7 +20,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 2,
     name: "AMD Ryzen 9 5900X",
     price: 549.99,
     core_count: 12,
@@ -31,7 +31,7 @@ export const products = [
     category: "CPU",
   },
   {
-    id: uuid(),
+    id: 3,
     name: "Intel Core i5-11600K",
     price: 279.99,
     core_count: 6,
@@ -42,7 +42,7 @@ export const products = [
     category: "CPU",
   },
   {
-    id: uuid(),
+    id: 4,
     name: "AMD Ryzen 7 5800X",
     price: 399.99,
     core_count: 8,
@@ -53,7 +53,7 @@ export const products = [
     category: "CPU",
   },
   {
-    id: uuid(),
+    id: 5,
     name: "Intel Core i9-11900K",
     price: 649.99,
     core_count: 8,
@@ -65,7 +65,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 6,
     name: "AMD Ryzen 5 5600X",
     price: 269.99,
     core_count: 6,
@@ -76,7 +76,7 @@ export const products = [
     category: "CPU",
   },
   {
-    id: uuid(),
+    id: 7,
     name: "Intel Core i7-10700K",
     price: 349.99,
     core_count: 8,
@@ -86,28 +86,9 @@ export const products = [
       "https://c1.neweggimages.com/ProductImageCompressAll1280/19-118-123-V03.jpg",
     category: "CPU",
   },
-  // {
-  //   id: uuid(),
-  //   name: "AMD Ryzen 9 5950X",
-  //   price: 799.99,
-  //   core_count: 16,
-  //   thread_count: 32,
-  //   clock_speed: "3.4 GHz",
-  //   image: "cpu_ryzen_9_5950x.jpg",
-  //   category: "CPU",
-  // },
-  // {
-  //   id: uuid(),
-  //   name: "Intel Core i9-10900K",
-  //   price: 529.99,
-  //   core_count: 10,
-  //   thread_count: 20,
-  //   clock_speed: "3.7 GHz",
-  //   image: "cpu_i9_10900k.jpg",
-  //   category: "CPU",
-  // },
+
   {
-    id: uuid(),
+    id: 8,
     name: "AMD Ryzen 7 5800H",
     price: 399.99,
     core_count: 8,
@@ -120,7 +101,7 @@ export const products = [
 
   // GPUs
   {
-    id: uuid(),
+    id: 9,
     name: "NVIDIA GeForce RTX 3080",
     price: 799.99,
     memory: "10 GB",
@@ -131,7 +112,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 10,
     name: "AMD Radeon RX 6800 XT",
     price: 649.99,
     memory: "16 GB",
@@ -141,7 +122,7 @@ export const products = [
     category: "GPU",
   },
   {
-    id: uuid(),
+    id: 11,
     name: "NVIDIA GeForce RTX 3090",
     price: 1499.99,
     memory: "24 GB",
@@ -151,7 +132,7 @@ export const products = [
     category: "GPU",
   },
   {
-    id: uuid(),
+    id: 12,
     name: "AMD Radeon RX 6900 XT",
     price: 999.99,
     memory: "16 GB",
@@ -161,7 +142,7 @@ export const products = [
     category: "GPU",
   },
   {
-    id: uuid(),
+    id: 13,
     name: "NVIDIA GeForce RTX 3070",
     price: 499.99,
     memory: "8 GB",
@@ -171,7 +152,7 @@ export const products = [
     category: "GPU",
   },
   {
-    id: uuid(),
+    id: 14,
     name: "AMD Radeon RX 6700 XT",
     price: 479.99,
     memory: "12 GB",
@@ -182,7 +163,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 15,
     name: "NVIDIA GeForce RTX 3060",
     price: 329.99,
     memory: "12 GB",
@@ -192,7 +173,7 @@ export const products = [
     category: "GPU",
   },
   {
-    id: uuid(),
+    id: 16,
     name: "AMD Radeon RX 6600 XT",
     price: 349.99,
     memory: "8 GB",
@@ -202,7 +183,7 @@ export const products = [
     category: "GPU",
   },
   {
-    id: uuid(),
+    id: 17,
     name: "NVIDIA GeForce RTX 3050 Ti",
     price: 249.99,
     memory: "4 GB",
@@ -213,7 +194,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 18,
     name: "AMD Radeon RX 6500 XT",
     price: 229.99,
     memory: "4 GB",
@@ -225,7 +206,7 @@ export const products = [
 
   // RAM
   {
-    id: uuid(),
+    id: 19,
     name: "Corsair Vengeance RGB Pro",
     price: 149.99,
     capacity: "16 GB",
@@ -235,7 +216,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 20,
     name: "G.Skill Trident Z RGB",
     price: 139.99,
     capacity: "16 GB",
@@ -244,7 +225,7 @@ export const products = [
     category: "RAM",
   },
   {
-    id: uuid(),
+    id: 21,
     name: "Crucial Ballistix RGB",
     price: 129.99,
     capacity: "16 GB",
@@ -254,7 +235,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 22,
     name: "Kingston HyperX Fury",
     price: 119.99,
     capacity: "16 GB",
@@ -263,7 +244,7 @@ export const products = [
     category: "RAM",
   },
   {
-    id: uuid(),
+    id: 23,
     name: "Corsair Dominator Platinum RGB",
     price: 199.99,
     capacity: "32 GB",
@@ -273,7 +254,7 @@ export const products = [
   },
 
   {
-    id: uuid(),
+    id: 24,
     name: "Crucial Ballistix",
     price: 99.99,
     capacity: "16 GB",
@@ -283,7 +264,7 @@ export const products = [
   },
 
   {
-    id: uuid(),
+    id: 25,
     name: "Corsair Vengeance LPX",
     price: 89.99,
     capacity: "16 GB",
@@ -292,7 +273,7 @@ export const products = [
     category: "RAM",
   },
   {
-    id: uuid(),
+    id: 26,
     name: "G.Skill Aegis",
     price: 79.99,
     capacity: "8 GB",
@@ -303,7 +284,7 @@ export const products = [
 
   // Cabinets
   {
-    id: uuid(),
+    id: 27,
     name: "NZXT H710i",
     price: 199.99,
     type: "Mid Tower",
@@ -311,7 +292,7 @@ export const products = [
     category: "Cabinet",
   },
   {
-    id: uuid(),
+    id: 28,
     name: "Corsair Obsidian 500D",
     price: 179.99,
     type: "Mid Tower",
@@ -320,7 +301,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 29,
     name: "Cooler Master MasterCase H500M",
     price: 169.99,
     type: "Mid Tower",
@@ -328,7 +309,7 @@ export const products = [
     category: "Cabinet",
   },
   {
-    id: uuid(),
+    id: 30,
     name: "Fractal Design Meshify C",
     price: 89.99,
     type: "Mid Tower",
@@ -336,7 +317,7 @@ export const products = [
     category: "Cabinet",
   },
   {
-    id: uuid(),
+    id: 31,
     name: "Phanteks Eclipse P400A",
     price: 79.99,
     type: "Mid Tower",
@@ -344,7 +325,7 @@ export const products = [
     category: "Cabinet",
   },
   {
-    id: uuid(),
+    id: 32,
     name: "NZXT H510",
     price: 69.99,
     type: "Mid Tower",
@@ -353,7 +334,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 33,
     name: "Corsair Carbide Series 275R",
     price: 59.99,
     type: "Mid Tower",
@@ -361,7 +342,7 @@ export const products = [
     category: "Cabinet",
   },
   {
-    id: uuid(),
+    id: 34,
     name: "Cooler Master MasterBox Q300L",
     price: 49.99,
     type: "Mini Tower",
@@ -370,7 +351,7 @@ export const products = [
     category: "Cabinet",
   },
   {
-    id: uuid(),
+    id: 35,
     name: "Fractal Design Focus G",
     price: 39.99,
     type: "Mid Tower",
@@ -378,7 +359,7 @@ export const products = [
     category: "Cabinet",
   },
   {
-    id: uuid(),
+    id: 36,
     name: "Phanteks P300",
     price: 39.99,
     type: "Mid Tower",
@@ -387,7 +368,7 @@ export const products = [
   },
 
   {
-    id: uuid(),
+    id: 37,
     name: "Acer Predator X27",
     price: 1999.99,
     display_size: "27 inches",
@@ -400,7 +381,7 @@ export const products = [
   },
 
   {
-    id: uuid(),
+    id: 38,
     name: "ASUS ROG Swift PG279QZ",
     price: 699.99,
     display_size: "27 inches",
@@ -411,7 +392,7 @@ export const products = [
   },
 
   {
-    id: uuid(),
+    id: 39,
     name: "Samsung 980 PRO NVMe M.2 SSD",
     price: 199.99,
     capacity: "1 TB",
@@ -422,7 +403,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 40,
     name: "Western Digital Black SN850 NVMe M.2 SSD",
     price: 299.99,
     capacity: "2 TB",
@@ -433,14 +414,14 @@ export const products = [
   // PSU
 
   {
-    id: uuid(),
+    id: 41,
     name: "EVGA SuperNOVA 750 G5",
     price: 129.99,
     image: "https://m.media-amazon.com/images/I/71PlbhFTnrL._SX679_.jpg",
     category: "PSU",
   },
   {
-    id: uuid(),
+    id: 42,
     name: "Corsair RM750x",
     price: 139.99,
     image: "https://m.media-amazon.com/images/I/71vXweqjv+L._SL1500_.jpg",
@@ -448,7 +429,7 @@ export const products = [
     new: true,
   },
   {
-    id: uuid(),
+    id: 43,
     name: "Seasonic Focus GX-750",
     price: 139.99,
     image: "https://m.media-amazon.com/images/I/81gBxvbxnQL._SL1500_.jpg",

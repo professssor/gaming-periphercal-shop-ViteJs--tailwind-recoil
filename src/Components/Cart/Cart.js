@@ -2,9 +2,14 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import { useContext } from "react";
 import { productState } from "../../State/ProductState";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { useAuth } from "../../State/AuthContext";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Cart() {
-  const { cartArray, handleDeleteCartItem } = useContext(productState);
+  const navigate = useNavigate();
+  const { cartArray, handleDeleteCartItem, setRender, render } =
+    useContext(productState);
   // to stop the shut on click behaviour of cart
   const handleContainerClick = (e) => {
     e.stopPropagation();
@@ -79,7 +84,7 @@ export default function Cart() {
         sx={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
+          justifyContent: "space-around",
           alignItems: "center",
         }}
       >
@@ -90,23 +95,26 @@ export default function Cart() {
               <span style={{ color: "black" }}> Total price: </span>$
               {totalPrice.toFixed(2)}{" "}
             </p>
-            <Button
-              variant="contained"
-              sx={{
-                color: "white",
-                background: "red",
-                borderRadius: ".2rem",
-                margin: "auto",
-                textAlign: "center",
-                height: "2rem",
 
-                "&:hover": {
-                  background: "black",
-                },
-              }}
-            >
-              Proceed
-            </Button>
+            <Link onClick={() => setRender(!render)} to="/checkout">
+              <Button
+                variant="contained"
+                sx={{
+                  color: "white",
+                  background: "red",
+                  borderRadius: ".2rem",
+                  margin: "auto",
+                  textAlign: "center",
+                  height: "2rem",
+
+                  "&:hover": {
+                    background: "black",
+                  },
+                }}
+              >
+                Proceed
+              </Button>
+            </Link>
           </>
         )}
       </Box>

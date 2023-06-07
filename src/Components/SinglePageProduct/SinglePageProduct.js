@@ -3,23 +3,18 @@ import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { productState } from "../../State/ProductState";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import bgproduct from "../../assets/bgproduct.avif";
+import { Toaster } from "react-hot-toast";
 export default function SinglePageProducts() {
   const { productId } = useParams();
 
-  const {
-    selectedProducts,
-    handleCart,
-    added,
-    handleAddToWishlist,
-    cartArray,
-  } = useContext(productState);
+  const { selectedProducts, handleCart, handleAddToWishlist, cartArray } =
+    useContext(productState);
 
   const clickedProduct = selectedProducts.find(
     (product) => product.id === productId
   );
-  const [selectedImg, setSelectedImg] = useState(clickedProduct.image);
+  const [selectedImg, setSelectedImg] = useState(clickedProduct?.image);
 
   return (
     <Box
@@ -28,10 +23,13 @@ export default function SinglePageProducts() {
         justifyContent: { xs: "center", md: "center" },
         flexDirection: { xs: "column", md: "row" },
         background: `url(${bgproduct})`,
+
         height: "100vh",
-        maxHeight: "120vh",
+        maxHeight: "130vh",
       }}
     >
+      <Toaster position=" top-center" />
+
       {/* left side */}
       <Box
         sx={{
@@ -56,8 +54,8 @@ export default function SinglePageProducts() {
               margin: ".4rem",
               borderRadius: ".5rem",
             }}
-            onClick={() => setSelectedImg(clickedProduct.image)}
-            src={clickedProduct.image}
+            onClick={() => setSelectedImg(clickedProduct?.image)}
+            src={clickedProduct?.image}
             alt=""
           />
           <img
@@ -67,8 +65,8 @@ export default function SinglePageProducts() {
               margin: ".4rem",
               borderRadius: ".5rem",
             }}
-            onClick={() => setSelectedImg(clickedProduct.image)}
-            src={clickedProduct.image}
+            onClick={() => setSelectedImg(clickedProduct?.image)}
+            src={clickedProduct?.image}
             alt=""
           />
         </Box>
@@ -84,12 +82,11 @@ export default function SinglePageProducts() {
         >
           <img
             style={{ height: "33rem", width: "33rem", borderRadius: "1rem" }}
-            src={selectedImg}
+            src={selectedImg || clickedProduct?.image}
             alt=""
           />
         </Box>
       </Box>
-
       {/* the right section of page */}
       <Box
         sx={{
@@ -103,24 +100,24 @@ export default function SinglePageProducts() {
         }}
       >
         <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
-          <h2 sx={{ fontSize: "3rem" }}>{clickedProduct.name}</h2>
+          <h2 sx={{ fontSize: "3rem" }}>{clickedProduct?.name}</h2>
           <p sx={{ fontSize: "3rem" }}>
             Price :{" "}
             <strike style={{ color: "red" }}>
-              {(clickedProduct.price + 50).toFixed(2)}
+              {(clickedProduct?.price + 50).toFixed(2)}
             </strike>{" "}
-            <strong> ${clickedProduct.price}</strong>
+            <strong> ${clickedProduct?.price}</strong>
           </p>
           <p sx={{ fontSize: "3rem" }}>
             <span>category : </span>
-            <strong> {clickedProduct.category}</strong>
+            <strong> {clickedProduct?.category}</strong>
           </p>
-          {cartArray.find((item) => item.id === clickedProduct.id) ? (
+          {cartArray.find((item) => item.id === clickedProduct?.id) ? (
             <p>
               Quantity:{" "}
               <strong>
                 {
-                  cartArray.find((item) => item.id === clickedProduct.id)
+                  cartArray.find((item) => item.id === clickedProduct?.id)
                     .quantity
                 }
               </strong>

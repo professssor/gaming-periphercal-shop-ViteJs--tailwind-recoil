@@ -31,7 +31,7 @@ const Login = () => {
             flexDirection: "column",
           }}
         >
-          <Toaster />
+          <Toaster position="top-right" />
           <h1 style={{ textAlign: "center" }}>You are logged in</h1>
           {/* this removes the id from the localstorage of token */}
           <Button
@@ -92,7 +92,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             label="Password"
-            type={showPassword ? "password" : "text"}
+            type={showPassword ? "text" : "password"}
             sx={{ marginBottom: "20px", width: "20rem" }}
             InputProps={{
               endAdornment: (
