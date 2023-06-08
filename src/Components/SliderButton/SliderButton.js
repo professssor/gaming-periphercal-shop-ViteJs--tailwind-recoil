@@ -28,6 +28,15 @@ const SliderButton = () => {
       : setCurrentSlide((prev) => prev + 1);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      const headerMessage = document.getElementById("header-message");
+      if (headerMessage) {
+        headerMessage.style.opacity = 1;
+      }
+    }, 2000);
+  }, []);
+
   return (
     <div style={{ width: "300vw" }}>
       {/* <div

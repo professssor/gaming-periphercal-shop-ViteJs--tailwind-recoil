@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { productState } from "../../State/ProductState";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SearchResult = () => {
   const { searchedProducts, searchQuery, setSearchQuery } =

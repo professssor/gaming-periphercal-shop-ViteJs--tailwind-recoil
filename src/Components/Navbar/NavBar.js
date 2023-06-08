@@ -15,6 +15,7 @@ const Navbar = () => {
     allProducts,
     handleSearch,
     searchQuery,
+    
     renderCart,
     setRenderCart,
   } = useContext(productState);

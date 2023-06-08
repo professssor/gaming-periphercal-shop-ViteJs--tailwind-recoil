@@ -39,10 +39,17 @@ export default function Footer() {
             }}
           >
             <p style={{ fontSize: "1.5rem" }}>Categories</p>
-            <a style={{ textDecoration: "none" }}>
+            <a
+              style={{
+                textDecoration: "none",
+                "&:hover": {
+                  textDecoration: "underline",
+                },
+              }}
+            >
               <p>Graphic Card</p>
             </a>
-            <a href="/products/2" style={{ textDecoration: "none" }}>
+            <a style={{ textDecoration: "none" }}>
               <p>Cabinet</p>
             </a>
             <a style={{ textDecoration: "none" }}>
